@@ -1,0 +1,19 @@
+- name: devops course info
+  hosts: local
+  connection: local #for local hosts
+  vars: 
+    course: devops #string
+    duration: 120 #int
+    topics: #list
+    - linux
+    - shell script
+    - ansible
+    - teraform
+    live: true #boolen
+    tools: #map
+      ci: jenkins
+      cm: ansible 
+  tasks: 
+  ansible.builtin.debug:
+    msg: "HI I am lerning {{ course}}, durtion is {{ durtion }},topics are {{ topics}}, live is {{ live }}, tools we used is {{ tools }}"
+    
