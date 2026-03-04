@@ -4,13 +4,13 @@
   tasks: 
   - name: check user exists or not
     ansible.builtin.command: id expense
-    register: user # here user is a variable and gets output from above command
+    register: USER # here user is a variable and gets output from above command
     ignore_errors: true  # error handling command
 
   - name: print the user inormation
     ansible.builtin.debug:
-      msg: "user info: {{ user }}"
+      msg: "user info: {{ USER }}"
 
   - name: create user
     ansible.builtin.command: id expense
-    when: user.rc != 0   #rc=return code 
+    when: USER.rc != 0   #rc=return code 
