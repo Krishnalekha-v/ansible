@@ -16,5 +16,6 @@
   tasks: 
   - name: print the devops details
     ansible.builtin.debug:
-      msg: "HI I am lerning {{ course }}, durtion is {{ durtion }},topics are {{ topics }}, live is {{ live }}, tools we used is {{ tools }}"
+      msg: "HI I am lerning {{ course }}, durtion: {{ durtion }},
+       topics are: {{ topics }}, live is: {{ live }}, tools we used is: {{ tools }}"
 
