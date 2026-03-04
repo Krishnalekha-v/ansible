@@ -1,0 +1,16 @@
+- name: crete user
+  hosts: web
+  become: yes
+  tasks: 
+  - name: check user exists or not
+    ansible.builtin.command: id expense
+    register: user # here user is a variable and gets output from above command
+    ignore_errors: true  # error handling command
+
+  - name: print the user inormation
+    ansible.builtin.debug:
+      msg: "user info: {{ user }}"
+
+  - name: create user
+    ansible.builtin.command: id expense
+    when: user.rc != 0   #rc=return code 
