@@ -7,10 +7,12 @@
       msg: "hello {{ course | default('ansible')}}"
 
   - name: convert to uppercase
-    vars: hello rama
+    vars: 
+      greetings: hello rama
     ansible.builtin.debug:
       msg: "{{ greetings | upper }}"
   - name: convert to uppercase
-    vars: hello rama
+    vars: 
+      greetings: hello rama
     ansible.builtin.debug:
       msg: "{{ greetings | lower }}"
