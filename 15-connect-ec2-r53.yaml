@@ -18,3 +18,16 @@
       security_group: "{{ sg_id }}"
       image_id: "{{ ami_id }}"
     loop: "{{ instances }}"
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "{{ ec2-instances }}"
+  - name: create r53 records
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      record: "{{ item.item }}.{{ zone }}"
+      type: A 
+      ttl: 1
+      value: "{{ item.instances[0].private_ip_address }}"
+      wait: true
+    loop: "{{ ec2-instances.results }}"
