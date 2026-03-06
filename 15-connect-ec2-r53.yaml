@@ -19,7 +19,7 @@
       security_group: "{{ sg_id }}"
       image_id: "{{ ami_id }}"
     loop: "{{ instances }}"
-    register: ec2-instance
+    register: "ec2-instance"
 
   - name: print the output
     ansible.builtin.debug:
